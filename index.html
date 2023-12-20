@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- le promise sono una rapressentanza di uno stato, 
+    una promessa di ritornare un valore in modo asincrono.-->
+<body>
+    <script>
+        /*chooseTopping(function (toppings) {
+            placeOrder(toppings, function (order) {
+                collectOrder(order, function(pizza) {
+                    eatPizza(pizza);
+                }, failureCallback);
+            }, failureCallback);
+        }, failureCallback); */
+
+        chooseTopping()
+         .then(function(toppings) {
+            return placeOrder(toppings);
+         })
+         .then(function (order) {
+            return collectOrder(order);
+         })
+         .then(function (pizza) {
+            eatPizza(pizza);
+         })
+         .catch(failureCallback);
+    </script>
+</body>
+</html>
